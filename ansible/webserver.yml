@@ -1,0 +1,19 @@
+---
+- name: Install dependencies
+  apt:
+    name: [ "python3-pip", "nginx" ]
+    state: present
+  become: true
+
+- name: Install Flask
+  pip:
+    name: flask
+
+- name: Copy app file
+  copy:
+    src: /tmp/app/main.py
+    dest: /var/www/app/main.py
+  become: true
+
+- name: Start app
+  shell: nohup python3 /var/www/app/main.py &
