@@ -14,11 +14,5 @@
     pip:
       name: flask
 
-  - name: Copy app file
-    copy:
-      src: /tmp/cloudops-pipeline-end-to-end-devops-on-aws/app/app.py
-      dest: /var/www/app/main.py
-    become: true
-
   - name: Start app
-    shell: nohup python3 /var/www/app/main.py &
+    shell: nohup python3 /tmp/cloudops-pipeline-end-to-end-devops-on-aws/app/app.py &
