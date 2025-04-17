@@ -5,7 +5,7 @@
   become: true
   tasks:
   - name: Install dependencies
-    apt:
+    yum:
       name: [ "python3-pip", "nginx" ]
       state: present
     become: true
@@ -16,7 +16,7 @@
 
   - name: Copy app file
     copy:
-      src: /tmp/cloudops-pipeline-end-to-end-devops-on-aws/app/main.py
+      src: /tmp/cloudops-pipeline-end-to-end-devops-on-aws/app/app.py
       dest: /var/www/app/main.py
     become: true
 
